@@ -1,0 +1,9 @@
+../Core/Inc/custom/camera/camera.c:51:9:Camera_WriteReg	40	static
+../Core/Inc/custom/camera/camera.c:66:9:Camera_ReadReg	32	static
+../Core/Inc/custom/camera/camera.c:79:9:Camera_WriteRegb2	32	static
+../Core/Inc/custom/camera/camera.c:92:9:Camera_ReadRegb2	40	static
+../Core/Inc/custom/camera/camera.c:105:9:Camera_WriteRegList	24	static
+../Core/Inc/custom/camera/camera.c:120:9:Camera_read_id	24	static
+../Core/Inc/custom/camera/camera.c:145:6:Camera_Reset	24	static
+../Core/Inc/custom/camera/camera.c:155:6:Camera_Init_Device	16	static
+../Core/Inc/custom/camera/camera.c:335:8:DCMI_OV2640_Init	16	static

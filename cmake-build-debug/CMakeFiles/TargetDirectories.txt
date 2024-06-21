@@ -1,0 +1,3 @@
+C:/backup/code/stm32/H753_OV2640/cmake-build-debug/CMakeFiles/H753_OV2640.elf.dir
+C:/backup/code/stm32/H753_OV2640/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/backup/code/stm32/H753_OV2640/cmake-build-debug/CMakeFiles/rebuild_cache.dir

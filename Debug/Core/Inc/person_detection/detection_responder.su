@@ -1,0 +1,1 @@
+../Core/Inc/person_detection/detection_responder.cc:23:6:void RespondToDetection(int8_t, int8_t)	16	static

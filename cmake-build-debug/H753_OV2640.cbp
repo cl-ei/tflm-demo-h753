@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="H753_OV2640"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/backup/code/stm32/H753_OV2640/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="H753_OV2640.elf">
+				<Option output="C:/backup/code/stm32/H753_OV2640/cmake-build-debug/H753_OV2640.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/backup/code/stm32/H753_OV2640/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32H753xx"/>
+					<Add directory="C:/backup/code/stm32/H753_OV2640/Core/Inc"/>
+					<Add directory="C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_H7_V1.11.1/Drivers/STM32H7xx_HAL_Driver/Inc"/>
+					<Add directory="C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_H7_V1.11.1/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_H7_V1.11.1/Drivers/CMSIS/Device/ST/STM32H7xx/Include"/>
+					<Add directory="C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_H7_V1.11.1/Drivers/CMSIS/Include"/>
+					<Add directory="c:\program files (x86)\gnu tools arm embedded\6 2017-q2-update\bin\../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/include/c++/6.3.1"/>
+					<Add directory="c:\program files (x86)\gnu tools arm embedded\6 2017-q2-update\bin\../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/include/c++/6.3.1/arm-none-eabi"/>
+					<Add directory="c:\program files (x86)\gnu tools arm embedded\6 2017-q2-update\bin\../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/include/c++/6.3.1/backward"/>
+					<Add directory="c:\program files (x86)\gnu tools arm embedded\6 2017-q2-update\bin\../lib/gcc/arm-none-eabi/6.3.1/include"/>
+					<Add directory="c:\program files (x86)\gnu tools arm embedded\6 2017-q2-update\bin\../lib/gcc/arm-none-eabi/6.3.1/include-fixed"/>
+					<Add directory="c:\program files (x86)\gnu tools arm embedded\6 2017-q2-update\bin\../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 H753_OV2640.elf"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="H753_OV2640.elf/fast">
+				<Option output="C:/backup/code/stm32/H753_OV2640/cmake-build-debug/H753_OV2640.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/backup/code/stm32/H753_OV2640/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32H753xx"/>
+					<Add directory="C:/backup/code/stm32/H753_OV2640/Core/Inc"/>
+					<Add directory="C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_H7_V1.11.1/Drivers/STM32H7xx_HAL_Driver/Inc"/>
+					<Add directory="C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_H7_V1.11.1/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_H7_V1.11.1/Drivers/CMSIS/Device/ST/STM32H7xx/Include"/>
+					<Add directory="C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_H7_V1.11.1/Drivers/CMSIS/Include"/>
+					<Add directory="c:\program files (x86)\gnu tools arm embedded\6 2017-q2-update\bin\../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/include/c++/6.3.1"/>
+					<Add directory="c:\program files (x86)\gnu tools arm embedded\6 2017-q2-update\bin\../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/include/c++/6.3.1/arm-none-eabi"/>
+					<Add directory="c:\program files (x86)\gnu tools arm embedded\6 2017-q2-update\bin\../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/include/c++/6.3.1/backward"/>
+					<Add directory="c:\program files (x86)\gnu tools arm embedded\6 2017-q2-update\bin\../lib/gcc/arm-none-eabi/6.3.1/include"/>
+					<Add directory="c:\program files (x86)\gnu tools arm embedded\6 2017-q2-update\bin\../lib/gcc/arm-none-eabi/6.3.1/include-fixed"/>
+					<Add directory="c:\program files (x86)\gnu tools arm embedded\6 2017-q2-update\bin\../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 H753_OV2640.elf/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/backup/code/stm32/H753_OV2640/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/backup/code/stm32/H753_OV2640/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.1/bin/mingw/bin/mingw32-make.exe -f &quot;C:/backup/code/stm32/H753_OV2640/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/backup/code/stm32">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/camera.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/camera.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov2640.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov2640.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov2640_regs.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov2640_regs.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov5640.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov5640.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov5640_regs.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov5640_regs.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov7670.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov7670.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov7670_regs.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov7670_regs.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov7725.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov7725.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov7725_regs.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/camera/ov7725_regs.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/debug.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/debug.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/fanke_lcd/lcd_fonts.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/fanke_lcd/lcd_fonts.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/fanke_lcd/lcd_image.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/fanke_lcd/lcd_image.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/fanke_lcd/lcd_spi_200.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/fanke_lcd/lcd_spi_200.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/fanke_lcd/lcd_test.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/inner_main.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/custom/inner_main.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/main.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/stm32h7xx_hal_conf.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Inc/stm32h7xx_it.h">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Src/main.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Src/stm32h7xx_hal_msp.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Src/stm32h7xx_it.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Src/syscalls.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Src/sysmem.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Src/system_stm32h7xx.c">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/Core/Startup/startup_stm32h753xihx.s">
+			<Option target="H753_OV2640.elf"/>
+		</Unit>
+		<Unit filename="C:/backup/code/stm32/H753_OV2640/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

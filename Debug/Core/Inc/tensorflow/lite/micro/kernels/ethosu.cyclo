@@ -1,0 +1,2 @@
+../Core/Inc/tensorflow/lite/micro/kernels/ethosu.cc:23:19:TFLMRegistration* tflite::Register_ETHOSU()	1
+../Core/Inc/tensorflow/lite/micro/kernels/ethosu.cc:25:13:const char* tflite::GetString_ETHOSU()	1
