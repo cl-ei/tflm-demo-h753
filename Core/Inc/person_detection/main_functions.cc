@@ -25,6 +25,8 @@ limitations under the License.
 #include "tensorflow/lite/micro/system_setup.h"
 #include "tensorflow/lite/schema/schema_generated.h"
 
+#include "custom/debug.h"
+
 // Globals, used for compatibility with Arduino-style sketches.
 namespace {
 const tflite::Model* model = nullptr;
@@ -113,15 +115,17 @@ int8_t invokeResult[2] = {};
 
 void* InvokePersonDetection(void *data) {
 	for (int i = 0; i < 96 * 96; ++i) {
-		input->data.int8[i] = ((int8_t *)data)[i];
+		input->data.int8[i] = ((uint8_t *)data)[i];
 	}
 
 	if (kTfLiteOk != interpreter->Invoke()) {
 		MicroPrintf("Invoke failed.");
+		print("Invoke failed.");
 	}
 	TfLiteTensor* output = interpreter->output(0);
 	int8_t person_score = output->data.uint8[kPersonIndex];
 	int8_t no_person_score = output->data.uint8[kNotAPersonIndex];
+	print("Invoke report person score: %d, no_person_score: %d", person_score, no_person_score);
 	invokeResult[0] = person_score;
 	invokeResult[1] = no_person_score;
 	return (void*)invokeResult;

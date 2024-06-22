@@ -75,7 +75,8 @@ Core/Inc/person_detection/main_functions.o: \
  ../Core/Inc/tensorflow/lite/micro/kernels/softmax.h \
  ../Core/Inc/tensorflow/lite/micro/kernels/transpose_conv.h \
  ../Core/Inc/tensorflow/lite/micro/models/person_detect_model_data.h \
- ../Core/Inc/tensorflow/lite/micro/system_setup.h
+ ../Core/Inc/tensorflow/lite/micro/system_setup.h \
+ ../Core/Inc/custom/debug.h
 ../Core/Inc/person_detection/main_functions.h:
 ../Core/Inc/person_detection/detection_responder.h:
 ../Core/Inc/tensorflow/lite/c/common.h:
@@ -158,3 +159,4 @@ Core/Inc/person_detection/main_functions.o: \
 ../Core/Inc/tensorflow/lite/micro/kernels/transpose_conv.h:
 ../Core/Inc/tensorflow/lite/micro/models/person_detect_model_data.h:
 ../Core/Inc/tensorflow/lite/micro/system_setup.h:
+../Core/Inc/custom/debug.h:

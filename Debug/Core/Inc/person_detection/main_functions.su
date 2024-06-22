@@ -10,11 +10,11 @@ C:\ST\STM32CubeIDE_1.14.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
 ../Core/Inc/tensorflow/lite/micro/kernels/depthwise_conv.h:74:25:TFLMRegistration tflite::Register_DEPTHWISE_CONV_2D_INT8()	16	static
 ../Core/Inc/tensorflow/lite/micro/kernels/pooling.h:124:25:TFLMRegistration tflite::Register_AVERAGE_POOL_2D_INT8()	16	static
 ../Core/Inc/tensorflow/lite/micro/kernels/softmax.h:60:25:TFLMRegistration tflite::Register_SOFTMAX_INT8()	16	static
-../Core/Inc/person_detection/main_functions.cc:65:44:void __tcf_0()	8	static
-../Core/Inc/person_detection/main_functions.cc:76:63:void __tcf_1()	8	static
-../Core/Inc/person_detection/main_functions.cc:47:6:void setup()	144	static
-../Core/Inc/person_detection/main_functions.cc:91:6:void loop()	16	static
-../Core/Inc/person_detection/main_functions.cc:114:7:void* InvokePersonDetection(void*)	32	static
+../Core/Inc/person_detection/main_functions.cc:67:44:void __tcf_0()	8	static
+../Core/Inc/person_detection/main_functions.cc:78:63:void __tcf_1()	8	static
+../Core/Inc/person_detection/main_functions.cc:49:6:void setup()	144	static
+../Core/Inc/person_detection/main_functions.cc:93:6:void loop()	16	static
+../Core/Inc/person_detection/main_functions.cc:116:7:void* InvokePersonDetection(void*)	32	static
 ../Core/Inc/flatbuffers/base.h:425:24:T flatbuffers::EndianScalar(T) [with T = long unsigned int]	16	static
 ../Core/Inc/flatbuffers/base.h:436:3:T flatbuffers::ReadScalar(const void*) [with T = long int]	16	static
 ../Core/Inc/flatbuffers/base.h:436:3:T flatbuffers::ReadScalar(const void*) [with T = short unsigned int]	16	static

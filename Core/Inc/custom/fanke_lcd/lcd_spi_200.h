@@ -67,6 +67,6 @@ void LCD_SPI_TxCallback(SPI_HandleTypeDef *hspi);
 int8_t LCD_OnTE();
 
 uint16_t* LCD_GetBackGRAMAddr();
-void LCD_Flush();
+void LCD_Flush(uint8_t block);
 
 #endif

@@ -4,84 +4,53 @@
 extern SPI_HandleTypeDef hspi2;	      // SPI_HandleTypeDef 结构体变量
 #define  LCD_SPI hspi2           // SPI局部宏，方便修改和移植
 
-typedef struct {
-	int8_t flushLayer;
-	int8_t drawLayer;
-
-    // 刷新的区域。0代表上半区，1代表下半区
-    // 由于硬件限制，单次无法传输完1帧画面，因此分为两次，先传上半部分，再传输下半部分
-	int8_t flushPart;
-
-	// -1: 未初始化;
-	//  0: 空闲;
-	//  1: 已提交;  将 draw 写入到 flush
-	//  2: 刷新上半区;
-	//  3: 刷新下半区; -> 回到0
-	int8_t status;
-} LCDTypeDef;
-
-LCDTypeDef hlcd = {-1, -1, 0, -1};
-
-// 采用双缓冲，一个图层用于绘制，另外一个图层用于传输（前景层），交替进行
-static uint16_t LCD_GRAM[LCD_WIDTH*LCD_HEIGHT*2];
-
-// 保存两个图层的首地址
-uint8_t *LCD_LayerAddr[2] = {LCD_GRAM, &(LCD_GRAM[LCD_WIDTH*LCD_HEIGHT])};
-
+static uint8_t LCD_CurrIndex = 0;
+static uint8_t LCD_targetIndex = 0;
+static uint8_t LCD_FlushPart = 100;  // 0 空闲, 1 上半区, 2下半区, 100 未初始化
+static uint16_t LCD_GRAM[LCD_WIDTH*LCD_HEIGHT];
 
 // TE 信号中断，用于触发帧传输
 int8_t LCD_OnTE() {
-	if (hlcd.status == 1) {
-		// 在空闲状态， 启动传输，将前景层数据写入屏幕
-		hlcd.flushPart = 0; // 初始化刷新区域
-		hlcd.status = 2; // 开始刷新上半区
-		return HAL_SPI_Transmit_DMA(&LCD_SPI, LCD_LayerAddr[hlcd.flushLayer], LCD_WIDTH*LCD_HEIGHT/2);
+//	if ((LCD_CurrIndex != LCD_targetIndex) && (LCD_FlushPart == 0)) {
+	if (LCD_FlushPart == 0) {
+		LCD_FlushPart = 1;
+		LCD_CurrIndex = LCD_targetIndex;
+		return HAL_SPI_Transmit_DMA(&LCD_SPI, LCD_GRAM, LCD_WIDTH*LCD_HEIGHT/2);
 	}
-	return 1;
+	return 0;
 }
 
 // 单次传输完成回调
 void LCD_SPI_TxCallback(SPI_HandleTypeDef *hspi) {
-	if (hlcd.status == 2){
+	if (LCD_FlushPart == 1){
 		// 上次 SPI 传输的是上半部分，此时需要启动下半部分的传输
-        hlcd.status = 3;
-		HAL_SPI_Transmit_DMA(&LCD_SPI, LCD_LayerAddr[hlcd.flushLayer] + LCD_WIDTH*LCD_HEIGHT, LCD_WIDTH*LCD_HEIGHT/2);
-	} else if (hlcd.status == 3) {
+		LCD_FlushPart = 2;
+		HAL_SPI_Transmit_DMA(&LCD_SPI, (uint8_t *)LCD_GRAM + LCD_WIDTH*LCD_HEIGHT, LCD_WIDTH*LCD_HEIGHT/2);
+	} else if (LCD_FlushPart == 2) {
 		// 下半部分的传输已经完成，重置标记
-		hlcd.status = 0;
+		LCD_FlushPart = 0;
 	}
 }
 
 // 获取绘制层 GRAM 首地址
 uint16_t* LCD_GetBackGRAMAddr() {
-	uint8_t layer = 0;
-	if (hlcd.drawLayer >= 0) {
-		layer = hlcd.drawLayer;
-	} else {
-		layer = (hlcd.flushLayer == 0) ? 1 : 0;
-		hlcd.drawLayer = layer;
-	}
-    return (uint16_t *) LCD_LayerAddr[layer];
+    return LCD_GRAM;
 }
 
 
 void LCD_ResetGram(uint16_t value) {
-    for (uint32_t i = 0; i < LCD_WIDTH*LCD_HEIGHT*2; i++){
-    	((uint16_t *)LCD_GRAM)[i] = value;
+    for (uint32_t i = 0; i < LCD_WIDTH*LCD_HEIGHT; i++){
+    	LCD_GRAM[i] = value;
     }
 }
 
 // 执行 LCD 刷新。在更新完GRAM之后调用此函数
-void LCD_Flush() {
+void LCD_Flush(uint8_t block) {
     // 等待刷新完成
-	if (hlcd.drawLayer < 0) {
-		return;
+	if (block == 1) {
+		while (LCD_FlushPart != 0);
 	}
-	while (hlcd.status != 0);
-	hlcd.flushLayer = hlcd.drawLayer;
-	hlcd.drawLayer = -1;
-    // 清除旧帧标记，在下一次进入 LCD_OnTE 时，就会触发 SPI 传输从而刷新画面
-    hlcd.status = 1;
+	LCD_targetIndex++;
 }
 
 
@@ -129,10 +98,6 @@ void LCD_SetAddrGlobal(){
 }
 
 void SPI_LCD_Init(void) {
-	if (hlcd.status > -1) {
-		return;
-	}
-
 	HAL_Delay(10);               	// 屏幕刚完成复位时（包括上电复位），需要等待至少5ms才能发送指令
 
  	LCD_WriteCommand(0x36);       // 显存访问控制 指令，用于设置访问显存的方式
@@ -229,13 +194,11 @@ void SPI_LCD_Init(void) {
 
 	LCD_SetAddrGlobal();
 
-	// 修改状态
-    hlcd.status = 0;
-
     // 将两页layer都刷成背景色
     LCD_ResetGram(0x91F1);
+    LCD_FlushPart = 0;
 
-    LCD_Flush();
+    LCD_Flush(1);
 
     // 全部设置完毕之后，打开背光
 	LCD_Backlight_ON;

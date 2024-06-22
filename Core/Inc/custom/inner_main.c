@@ -26,13 +26,18 @@ void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi) {
 
 int8_t lcdFps = 0;
 int8_t keyMode = 0;
+uint32_t lastPress = 0;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	// TE 信号中断，触发帧传输 LCD 传输完成回调
 	static uint32_t count = 0, tick = 0;
 
     if (GPIO_Pin == GPIO_PIN_4) {
-        // show = 1;
+        if ((HAL_GetTick() - lastPress) < 15) {
+        	// do nothing
+        } else {
+        	lastPress = HAL_GetTick();
+        }
     	keyMode += 1;
 
     } else if (GPIO_Pin == GPIO_PIN_6) {
@@ -75,6 +80,9 @@ void renderSineWave() {
 	print("model loaded.");
 
 	while (1) {
+		LCD_ResetGram(0x91F1);
+		HAL_Delay(100);
+
 		for (uint16_t x = 0; x < 240; x++) {
 			float_t input = (float)x / 240 * 2*3.14;
 			float_t pred = Invoke(input);
@@ -82,11 +90,9 @@ void renderSineWave() {
 
 			distAddr = LCD_GetBackGRAMAddr();
 			*(distAddr + x + 240*y) = 0xFFFF;
-
-			LCD_Flush();
+			HAL_Delay(5);
 		}
-		HAL_Delay(300);
-		LCD_ResetGram(0x91F1);
+		HAL_Delay(700);
 	}
 }
 
@@ -125,7 +131,7 @@ void renderCamera() {
 					b = (p & 0x001f) << 3;
 					gray = (r*76 + g*150 + b*29) >> 8;
 
-					grayData[x-16][y] = gray;
+					grayData[y][x-16] = gray;
 
 					// 转成rgb565
 					r = gray >> 3;
@@ -133,7 +139,10 @@ void renderCamera() {
 					b = gray >> 3;
 					p = (r << 11) | (g << 5) | b;
 
-					*(distAddr + (x + 56) + 240*(y + 100)) = p;
+					*(distAddr + (x*2 + 4) + 240*(y*2 + 12)) = p;
+					*(distAddr + (x*2 + 4) + 240*(y*2 + 1 + 12)) = p;
+					*(distAddr + (x*2 + 1 + 4) + 240*(y*2 + 12)) = p;
+					*(distAddr + (x*2 + 1 + 4) + 240*(y*2 + 1 + 12)) = p;
 				}
 			}
 		}
@@ -148,7 +157,7 @@ void renderCamera() {
 			int8_t *result = InvokePersonDetection(grayData);
 			setLed(0);
 
-			print("invoke result: %d", *result);
+//			print("invoke result, person: %d, no person: %d", *result, *(result + 1));
 			for(uint16_t x = 0; x < 240; x++) {
 				if (x >= result[0]){
 					break;
@@ -166,16 +175,12 @@ void renderCamera() {
 				*(distAddr + x + 240*(315)) = 0x00FF;
 				*(distAddr + x + 240*(316)) = 0x00FF;
 			}
-			LCD_Flush();
+			LCD_Flush(1);
 			while (lastkeyMode == keyMode);
 			lastkeyMode = keyMode;
+			LCD_ResetGram(0x91F1);
 		} else {
-			LCD_Flush();
-		}
-
-		if (HAL_GetTick() - lastPrint > 1000) {
-			print("Camera_FPS fps: %d, lcdFps: %d l: %x", Camera_FPS, lcdFps, distAddr);
-			lastPrint = HAL_GetTick();
+			LCD_Flush(1);
 		}
 	}
 }
@@ -183,12 +188,12 @@ void renderCamera() {
 void myMain() {
 	print("enter inner main.");
 
-	setLed(1);
+	setLed(0);
 	SPI_LCD_Init();
 	print("lcd init complete.");
 
 	HAL_Delay(1000);
-	if (keyMode > 0) {
+	if (keyMode == 0) {
 		// render sine
 		renderSineWave();
 	} else {

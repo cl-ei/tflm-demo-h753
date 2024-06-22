@@ -1,8 +1,8 @@
 ../Core/Inc/custom/inner_main.c:15:6:setLed	1
 ../Core/Inc/custom/inner_main.c:18:6:toggleLed	1
 ../Core/Inc/custom/inner_main.c:22:6:HAL_SPI_TxCpltCallback	1
-../Core/Inc/custom/inner_main.c:30:6:HAL_GPIO_EXTI_Callback	5
-../Core/Inc/custom/inner_main.c:58:6:HAL_DCMI_FrameEventCallback	2
-../Core/Inc/custom/inner_main.c:72:6:renderSineWave	2
-../Core/Inc/custom/inner_main.c:95:6:renderCamera	13
-../Core/Inc/custom/inner_main.c:183:6:myMain	2
+../Core/Inc/custom/inner_main.c:31:6:HAL_GPIO_EXTI_Callback	6
+../Core/Inc/custom/inner_main.c:63:6:HAL_DCMI_FrameEventCallback	2
+../Core/Inc/custom/inner_main.c:77:6:renderSineWave	2
+../Core/Inc/custom/inner_main.c:101:6:renderCamera	12
+../Core/Inc/custom/inner_main.c:188:6:myMain	2
